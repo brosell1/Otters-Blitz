@@ -1,0 +1,19 @@
+
+#first {
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    width: 250px;
+    float: left;
+    height: 350px;
+    background-color: green;
+}
+#second {
+    position: absolute;
+    top: 100px;
+    left: 450px;
+    width: 250px;
+    float: left;
+    height: 350px;
+    background-color: green;
+}
