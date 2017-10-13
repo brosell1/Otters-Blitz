@@ -1,0 +1,99 @@
+.wrapper {
+
+  position: relative;
+
+}
+
+.ears{
+  height: 70px;
+  width: 120px;
+  background-color: rgb(153, 118, 106);
+  position: absolute;
+  top: 10px;
+  left: 105px;
+
+}
+
+.face {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: rgb(153, 118, 106);
+  position: relative;
+  overflow: hidden;
+  left: 90px;
+}
+
+.eye {
+  height: 100px;
+  width: 100px;
+  border-radius: 70%;
+  background-color: white;
+  position:absolute;
+  top: 65px;
+}
+
+.eyeleft{
+  left: -30px;
+}
+
+.eyeright{
+  right: -30px;
+}
+
+.nose{
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 50%;
+  position:absolute;
+  top: 135px;
+  left: 150px;
+
+}
+.pupil{
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  top: 40px;
+}
+
+.eyeleft .pupil {
+  left: 70px;
+}
+
+.eyeright .pupil {
+  right: 70px;
+}
+
+.tail {
+  height: 100px;
+  width: 200px;
+  background-color: rgb(153, 118, 106);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  position:absolute;
+  left:37px;
+  top: 130px;
+  z-index: -1;
+}
+.neck {
+  height: 50px;
+  width: 50px;
+  background-color: rgb(153, 118, 106);
+  position: absolute;
+  left: 150px;
+  top: -40px;
+}
+.justthetip{
+  height: 50px;
+  width: 50px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-bottom-right-radius: 50%;
+}
+}
