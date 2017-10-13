@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  background-color: rgb(188,245,203);
+}
+
+.ball {
+  height: 250px;
+  width: 250px;
+  background-color: black;
+  position: absolute;
+  border-radius: 50%;
+
+}
+
+.whiteBall {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+  top: 39px;
+  left: 92px;
+
+}
+
+.eight{
+  font-family: 'Nosifer', cursive;
+  font-size: 57px;
+  position: absolute;
+  top: 44px;
+  left: 118px;
+}
