@@ -57,6 +57,6 @@ function randomize(){
   console.log(finalCard[0].makeUrl());
   console.log(finalCard[1].makeUrl());
   console.log(finalCard);
-  document.getElementById("item1").src = finalCard[0].makeUrl();
-  document.getElementById("item2").src = finalCard[1].makeUrl();
+  document.getElementById("first").src = finalCard[0].makeUrl();
+  document.getElementById("second").src = finalCard[1].makeUrl();
 }
