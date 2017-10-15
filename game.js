@@ -5,8 +5,18 @@ const sndTrain = new Audio("train.mp3");
 const sndTick = new Audio("tick.mp3");
 const sndExplosion = new Audio("explode.mp3");
 var On = false;
+var loop = false;
 
-
+function looping(){
+  let button = document.getElementById("loop");
+  if(loop == false){
+    button.innerHTML = "Stop Looping";
+    loop = true;
+  } else {
+    button.innerHTML = "Loop";
+    loop = false;
+  }
+}
 
 function getRandom(n = pieces.length){
   return Math.floor(Math.random()*n);
@@ -148,6 +158,9 @@ function explosion(){
   document.getElementById("spin").classList.remove("spin");
   On = false;
   console.log('boom');
+  if(loop == true){
+    noise();
+  }
 }
 function noise(n = 5000){
   if(On == false){

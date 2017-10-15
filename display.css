@@ -21,6 +21,12 @@ body {
   cursor:pointer;
 }
 
+#loop {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
 @-webkit-keyframes spinnerRotate
 {
     from{-webkit-transform:rotate(0deg);}
