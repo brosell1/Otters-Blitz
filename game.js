@@ -1,9 +1,9 @@
 const colours = ['pink', 'white', 'red', 'black', 'yellow'];
 const pieces = ['pig', 'skull', 'car', 'ball', 'dragon'];
-const sndBeep = new Audio("beep.mp3");
-const sndTrain = new Audio("train.mp3");
-const sndTick = new Audio("tick.mp3");
-const sndExplosion = new Audio("explode.mp3");
+const sndBeep = new Audio("./SFX/beep.mp3");
+const sndTrain = new Audio("./SFX/train.mp3");
+const sndTick = new Audio("./SFX/tick.mp3");
+const sndExplosion = new Audio("./SFX/explode.mp3");
 var On = false;
 var loop = false;
 
