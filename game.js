@@ -4,6 +4,7 @@ const sndBeep = new Audio("beep.mp3");
 const sndTrain = new Audio("train.mp3");
 const sndTick = new Audio("tick.mp3");
 const sndExplosion = new Audio("explode.mp3");
+var On = false;
 
 
 
@@ -34,12 +35,48 @@ function CardObject(piece, colour){
   return {
     piece: pieces[piece],
     colour: colours[colour],
-    makeUrl: function(){return "./images/"+this.piece+"_"+this.colour+".png"}
+    makeUrl: function(){
+      return "./images/"+this.piece+"_"+this.colour+".png";
+    },
+    showCorrect: function(){
+      let arr = [];
+      if(piece == colour){
+        return "./images/"+this.piece+"_"+this.colour+".png";
+      } else {
+        for(let i = 0; i < 5; i++){
+          if(i != piece && i != colour){
+            arr.push(i);
+          }
+        }
+        return arr;
+      }
+    }
   }
+}
+
+function showCorrect(){
+  let arr = [];
+  if(piece == colour){
+    return "./images/"+this.piece+"_"+this.colour+".png";
+  } else {
+    for(let i = 0; i < 5; i++){
+      if(i != piece && i != colour){
+        arr.push(i);
+      }
+    }
+    return arr;
+  }
+}
+
+function animate(){
+  console.log("animation start");
+  document.getElementById("spin").className += "spin";
 }
 
 function randomize(){
   let finalCard;
+  let correctNum;
+  let correct;
   var i = getRandom(6);
   console.log(i);
   if(i <= 1){
@@ -65,6 +102,30 @@ function randomize(){
   console.log(finalCard);
   document.getElementById("first").src = finalCard[0].makeUrl();
   document.getElementById("second").src = finalCard[1].makeUrl();
+  let arr1 = finalCard[0].showCorrect();
+  console.log(arr1);
+  let arr2 = finalCard[1].showCorrect();
+  console.log(arr2);
+  if(typeof(arr1) == "string"){
+    correct = arr1;
+  } else if(typeof(arr2) == "string"){
+    correct = arr2;
+  } else {
+    for(let i = 2; i >= 0; i--){
+      for(let j = 2; j >= 0; j--){
+        if(arr2[j] == arr1[i]){
+          correctNum = arr2[j];
+        }
+      }
+    }
+    console.log(correctNum);
+    correct = "./images/"+pieces[correctNum]+"_"+colours[correctNum]+".png";
+  }
+  console.log(correct);
+  wait(5000).then(() => {
+    document.getElementById("first").src = correct;
+    document.getElementById("second").src = "";
+  })
 }
 const wait = time => new Promise((resolve) => setTimeout(resolve, time));
 function beep(){
@@ -75,6 +136,7 @@ function train(){
   sndTrain.play();
   console.log('train');
   randomize();
+  animate();
 }
 function tick(){
   sndTick.play();
@@ -83,12 +145,17 @@ function tick(){
 function explosion(){
   sndTick.pause();
   sndExplosion.play();
+  document.getElementById("spin").classList.remove("spin");
+  On = false;
   console.log('boom');
 }
 function noise(n = 5000){
-  beep()
-  wait(1000).then(() => beep());
-  wait(2000).then(() => beep());
-  wait(3000).then(() => train()).then(() => tick());
-  wait(n+3000).then(() => explosion());
+  if(On == false){
+    beep();
+    wait(1000).then(() => beep());
+    wait(2000).then(() => beep());
+    wait(3000).then(() => train()).then(() => tick());
+    wait(n+3000).then(() => explosion());
+    On = true;
+  }
 }
